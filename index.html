@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mathic — The maths app your child will actually want to open</title>
+  <meta name="description" content="Mathic turns the UK National Curriculum into island adventures that children aged 5–11 actually want to play. 10 minutes a day builds real maths confidence." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --brand: #534AB7;
+      --brand-dark: #3d3688;
+      --brand-light: #ede9ff;
+      --amber: #F5A623;
+      --emerald: #22c55e;
+      --text: #1a1523;
+      --text-muted: #6b6580;
+      --white: #ffffff;
+      --off-white: #faf9ff;
+      --radius: 16px;
+      --shadow: 0 4px 24px rgba(83,74,183,0.12);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      background: var(--off-white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250,249,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(83,74,183,0.08);
+      padding: 0 24px;
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: 'Fraunces', serif;
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: var(--brand);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--brand); }
+    .btn-nav {
+      background: var(--brand);
+      color: var(--white) !important;
+      padding: 10px 22px;
+      border-radius: 100px;
+      font-size: 0.875rem !important;
+      font-weight: 600 !important;
+      transition: background 0.2s, transform 0.1s !important;
+    }
+    .btn-nav:hover { background: var(--brand-dark) !important; transform: translateY(-1px); }
+
+    /* HERO */
+    .hero {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 24px 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .hero-text h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+    .hero-text h1 em {
+      font-style: italic;
+      color: var(--brand);
+    }
+    .hero-text p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 36px;
+      max-width: 460px;
+      line-height: 1.7;
+    }
+    .hero-ctas {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--brand);
+      color: var(--white);
+      padding: 16px 32px;
+      border-radius: 100px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 8px 24px rgba(83,74,183,0.3);
+    }
+    .btn-primary:hover {
+      background: var(--brand-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(83,74,183,0.4);
+    }
+    .btn-primary svg { width: 20px; height: 20px; }
+    .trial-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .trial-note strong { color: var(--emerald); }
+
+    /* HERO VISUAL */
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-mascot {
+      font-size: 10rem;
+      line-height: 1;
+      filter: drop-shadow(0 20px 40px rgba(83,74,183,0.2));
+      animation: float 4s ease-in-out infinite;
+    }
+    .hero-bubble {
+      position: absolute;
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 12px 16px;
+      box-shadow: var(--shadow);
+      font-size: 0.85rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .bubble-1 { top: 10%; right: -10px; color: var(--brand); }
+    .bubble-2 { bottom: 20%; left: -20px; color: var(--emerald); }
+    .bubble-3 { top: 50%; right: -30px; color: var(--amber); }
+    .bubble-dot {
+      display: inline-block;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      margin-right: 6px;
+    }
+    .dot-purple { background: var(--brand); }
+    .dot-green { background: var(--emerald); }
+    .dot-amber { background: var(--amber); }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-16px); }
+    }
+
+    /* SOCIAL PROOF BAR */
+    .proof-bar {
+      background: var(--brand);
+      padding: 14px 24px;
+    }
+    .proof-bar-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .proof-item {
+      color: rgba(255,255,255,0.9);
+      font-size: 0.875rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .proof-item span { color: var(--amber); font-weight: 700; }
+    .proof-sep { color: rgba(255,255,255,0.3); }
+
+    /* SECTION SHARED */
+    section { padding: 80px 24px; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      display: inline-block;
+      background: var(--brand-light);
+      color: var(--brand);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+    .section-title {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900;
+      letter-spacing: -1px;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .section-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    /* HOW IT WORKS */
+    .how-section { background: var(--white); }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 56px;
+    }
+    .step {
+      text-align: center;
+      padding: 40px 32px;
+      background: var(--off-white);
+      border-radius: 24px;
+      position: relative;
+    }
+    .step-number {
+      width: 48px;
+      height: 48px;
+      background: var(--brand);
+      color: var(--white);
+      border-radius: 50%;
+      font-family: 'Fraunces', serif;
+      font-weight: 900;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+    .step-icon { font-size: 3rem; margin-bottom: 16px; }
+    .step h3 {
+      font-family: 'Fraunces', serif;
+      font-weight: 700;
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+      letter-spacing: -0.3px;
+    }
+    .step p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* CURRICULUM */
+    .curriculum-section { background: var(--off-white); }
+    .curriculum-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      margin-top: 48px;
+    }
+    .curriculum-badges {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .curriculum-badge {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      box-shadow: var(--shadow);
+    }
+    .badge-icon {
+      font-size: 2rem;
+      flex-shrink: 0;
+    }
+    .badge-text h4 {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+    .badge-text p { font-size: 0.82rem; color: var(--text-muted); }
+
+    /* TESTIMONIALS */
+    .testimonials-section { background: var(--white); }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .testimonial {
+      background: var(--off-white);
+      border-radius: 20px;
+      padding: 32px;
+      position: relative;
+    }
+    .testimonial::before {
+      content: '"';
+      font-family: 'Fraunces', serif;
+      font-size: 5rem;
+      color: var(--brand-light);
+      position: absolute;
+      top: 16px;
+      left: 24px;
+      line-height: 1;
+    }
+    .testimonial-text {
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      margin-top: 24px;
+      color: var(--text);
+      position: relative;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .author-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--brand-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+    .author-name { font-weight: 700; font-size: 0.875rem; }
+    .author-meta { font-size: 0.78rem; color: var(--text-muted); }
+    .stars { color: var(--amber); font-size: 0.85rem; margin-bottom: 4px; }
+
+    /* YEAR GROUPS */
+    .years-section { background: var(--brand); padding: 64px 24px; }
+    .years-inner { max-width: 1100px; margin: 0 auto; text-align: center; }
+    .years-inner .section-title { color: var(--white); }
+    .years-inner .section-subtitle { color: rgba(255,255,255,0.75); margin: 0 auto 40px; }
+    .year-chips {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .year-chip {
+      background: rgba(255,255,255,0.15);
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 100px;
+      padding: 10px 24px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      backdrop-filter: blur(8px);
+    }
+    .year-chip.active {
+      background: var(--amber);
+      border-color: var(--amber);
+      color: var(--text);
+    }
+
+    /* CTA SECTION */
+    .cta-section { background: var(--off-white); text-align: center; }
+    .cta-section .section-title { margin: 0 auto 12px; }
+    .cta-section .section-subtitle { margin: 0 auto 36px; }
+    .cta-mascot { font-size: 5rem; margin-bottom: 24px; }
+
+    /* FOOTER */
+    footer {
+      background: var(--text);
+      color: rgba(255,255,255,0.6);
+      padding: 40px 24px;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-logo {
+      font-family: 'Fraunces', serif;
+      font-weight: 900;
+      font-size: 1.3rem;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy { font-size: 0.82rem; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; gap: 40px; text-align: center; padding: 48px 20px 40px; }
+      .hero-text p { margin: 0 auto 28px; }
+      .hero-ctas { align-items: center; }
+      .hero-visual { order: -1; }
+      .hero-mascot { font-size: 7rem; }
+      .steps { grid-template-columns: 1fr; }
+      .curriculum-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .proof-bar-inner { gap: 16px; }
+      .proof-sep { display: none; }
+      .nav-links { display: none; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Mathic 🦔</a>
+      <ul class="nav-links">
+        <li><a href="#how-it-works">How it works</a></li>
+        <li><a href="#curriculum">Curriculum</a></li>
+        <li><a href="help.html">Help</a></li>
+        <li><a href="#download" class="btn-nav">Free trial</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section style="padding: 0;">
+    <div class="hero">
+      <div class="hero-text">
+        <h1>The maths app your child will <em>actually</em> want to open.</h1>
+        <p>Mathic turns the UK National Curriculum into island adventures that children aged 5–11 actually want to play. 10 minutes a day builds real maths confidence.</p>
+        <div class="hero-ctas">
+          <a href="#download" class="btn-primary">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            Download on App Store
+          </a>
+          <p class="trial-note"><strong>✓ Free 7-day trial</strong> &nbsp;·&nbsp; No credit card required</p>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-mascot">🦔</div>
+        <div class="hero-bubble bubble-1"><span class="bubble-dot dot-purple"></span>Y3 Place Value ✓</div>
+        <div class="hero-bubble bubble-2"><span class="bubble-dot dot-green"></span>Streak: 14 days 🔥</div>
+        <div class="hero-bubble bubble-3"><span class="bubble-dot dot-amber"></span>Island completed! 🏝️</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF BAR -->
+  <div class="proof-bar">
+    <div class="proof-bar-inner">
+      <div class="proof-item">📚 <span>UK National Curriculum</span> aligned</div>
+      <div class="proof-sep">·</div>
+      <div class="proof-item">🎓 Years <span>1–6</span> covered</div>
+      <div class="proof-sep">·</div>
+      <div class="proof-item">⏱️ Just <span>10 mins</span> a day</div>
+      <div class="proof-sep">·</div>
+      <div class="proof-item">🆓 Free <span>7-day</span> trial</div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-section" id="how-it-works">
+    <div class="section-inner">
+      <div class="section-label">How it works</div>
+      <h2 class="section-title">Three steps to maths confidence</h2>
+      <p class="section-subtitle">Mathic makes it easy for parents to get started and easy for children to keep going.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-icon">🎯</div>
+          <h3>Pick your child's year group</h3>
+          <p>Create a profile in under a minute. Mathic loads the exact topics your child is covering at school right now.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-icon">🏝️</div>
+          <h3>Play island adventures</h3>
+          <p>Each maths topic becomes an island to explore. Your child discovers, practises, and conquers — earning coins and streaks along the way.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-icon">📈</div>
+          <h3>Watch confidence grow</h3>
+          <p>10 minutes a day compounds fast. Parents can see progress across every topic, and children feel it in the classroom.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- YEAR GROUPS -->
+  <section class="years-section">
+    <div class="years-inner">
+      <h2 class="section-title">Every year, every topic.</h2>
+      <p class="section-subtitle">From counting in Year 1 to algebra in Year 6 — Mathic covers the complete primary maths journey.</p>
+      <div class="year-chips">
+        <div class="year-chip">Year 1 · Ages 5–6</div>
+        <div class="year-chip active">Year 2 · Ages 6–7</div>
+        <div class="year-chip">Year 3 · Ages 7–8</div>
+        <div class="year-chip active">Year 4 · Ages 8–9</div>
+        <div class="year-chip">Year 5 · Ages 9–10</div>
+        <div class="year-chip">Year 6 · Ages 10–11</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CURRICULUM -->
+  <section class="curriculum-section" id="curriculum">
+    <div class="section-inner">
+      <div class="curriculum-grid">
+        <div>
+          <div class="section-label">Curriculum</div>
+          <h2 class="section-title">Built on what schools actually teach.</h2>
+          <p class="section-subtitle">Mathic follows the White Rose Maths sequence — the same scheme used by thousands of UK primary schools. Every island, every question, every level is curriculum-mapped.</p>
+        </div>
+        <div class="curriculum-badges">
+          <div class="curriculum-badge">
+            <div class="badge-icon">🇬🇧</div>
+            <div class="badge-text">
+              <h4>UK National Curriculum aligned</h4>
+              <p>Every topic maps to statutory requirements for KS1 and KS2</p>
+            </div>
+          </div>
+          <div class="curriculum-badge">
+            <div class="badge-icon">🌹</div>
+            <div class="badge-text">
+              <h4>White Rose Maths sequence</h4>
+              <p>Topics follow the same order your child's school uses — no confusion</p>
+            </div>
+          </div>
+          <div class="curriculum-badge">
+            <div class="badge-icon">🏆</div>
+            <div class="badge-text">
+              <h4>SATs preparation built in</h4>
+              <p>Y6 content covers every topic tested in KS2 SATs</p>
+            </div>
+          </div>
+          <div class="curriculum-badge">
+            <div class="badge-icon">🔒</div>
+            <div class="badge-text">
+              <h4>Safe for children</h4>
+              <p>GDPR-UK compliant · ICO registered · No ads · No social features</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials-section">
+    <div class="section-inner">
+      <div class="section-label">What parents say</div>
+      <h2 class="section-title">Families who use Mathic every day.</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial">
+          <p class="testimonial-text">My daughter used to dread maths homework. Now she asks to open Mathic before dinner. The islands make it feel like a game, but she's genuinely learning — her teacher noticed the difference within weeks.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">👩</div>
+            <div>
+              <div class="stars">★★★★★</div>
+              <div class="author-name">Sarah M.</div>
+              <div class="author-meta">Parent of Y3 child · London</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <p class="testimonial-text">I've tried three different maths apps and Mathic is the only one my boys actually stick with. The fact that it follows exactly what they're doing at school means there's no disconnect — it reinforces rather than confuses.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">👩‍🦱</div>
+            <div>
+              <div class="stars">★★★★★</div>
+              <div class="author-name">Priya K.</div>
+              <div class="author-meta">Mum of two · Manchester</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="download">
+    <div class="section-inner">
+      <div class="cta-mascot">🦔</div>
+      <h2 class="section-title">Start your free trial today.</h2>
+      <p class="section-subtitle">7 days free. No credit card required. Cancel anytime. Your child will thank you (eventually).</p>
+      <a href="#" class="btn-primary" style="margin: 0 auto; display: inline-flex;">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        Download on App Store
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <a href="/" class="footer-logo">Mathic 🦔</a>
+      <ul class="footer-links">
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms & Conditions</a></li>
+        <li><a href="help.html">Help & FAQ</a></li>
+        <li><a href="mailto:hello@mathic.app">hello@mathic.app</a></li>
+      </ul>
+      <p class="footer-copy">© 2026 Mathic. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

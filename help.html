@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Help & FAQ — Mathic</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root { --brand: #534AB7; --brand-light: #ede9ff; --brand-dark: #3d3688; --text: #1a1523; --text-muted: #6b6580; --white: #ffffff; --off-white: #faf9ff; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--off-white); line-height: 1.7; }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(250,249,255,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(83,74,183,0.08); padding: 0 24px; }
+    .nav-inner { max-width: 800px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .nav-logo { font-family: 'Fraunces', serif; font-weight: 900; font-size: 1.5rem; color: var(--brand); text-decoration: none; }
+    .nav-back { font-size: 0.875rem; color: var(--text-muted); text-decoration: none; }
+    .nav-back:hover { color: var(--brand); }
+    .content { max-width: 800px; margin: 0 auto; padding: 64px 24px 80px; }
+    .page-label { display: inline-block; background: var(--brand-light); color: var(--brand); font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 6px 14px; border-radius: 100px; margin-bottom: 20px; }
+    h1 { font-family: 'Fraunces', serif; font-size: 2.4rem; font-weight: 900; letter-spacing: -1px; margin-bottom: 12px; }
+    .subtitle { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 48px; }
+    .faq-category { font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 700; color: var(--brand); margin: 48px 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--brand-light); }
+    .faq-item { background: var(--white); border-radius: 12px; margin-bottom: 12px; overflow: hidden; border: 1px solid rgba(83,74,183,0.08); }
+    .faq-question { padding: 20px 24px; font-weight: 600; font-size: 0.95rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .faq-question:hover { background: var(--brand-light); }
+    .faq-answer { padding: 0 24px 20px; font-size: 0.9rem; color: #2d2640; line-height: 1.7; display: none; }
+    .faq-item.open .faq-answer { display: block; }
+    .faq-item.open .faq-question { background: var(--brand-light); color: var(--brand); }
+    .chevron { font-size: 0.75rem; transition: transform 0.2s; flex-shrink: 0; }
+    .faq-item.open .chevron { transform: rotate(180deg); }
+    .contact-card { background: var(--brand); color: var(--white); border-radius: 20px; padding: 40px; text-align: center; margin-top: 56px; }
+    .contact-card h2 { font-family: 'Fraunces', serif; font-size: 1.6rem; font-weight: 900; margin-bottom: 12px; }
+    .contact-card p { color: rgba(255,255,255,0.8); margin-bottom: 24px; }
+    .contact-btn { display: inline-block; background: var(--white); color: var(--brand); padding: 14px 32px; border-radius: 100px; font-weight: 700; text-decoration: none; font-size: 0.95rem; transition: transform 0.15s; }
+    .contact-btn:hover { transform: translateY(-2px); }
+    footer { background: #1a1523; color: rgba(255,255,255,0.5); padding: 32px 24px; text-align: center; font-size: 0.82rem; }
+    footer a { color: rgba(255,255,255,0.6); text-decoration: none; margin: 0 12px; }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Mathic 🦔</a>
+      <a href="/" class="nav-back">← Back to home</a>
+    </div>
+  </nav>
+  <div class="content">
+    <div class="page-label">Help Centre</div>
+    <h1>How can we help?</h1>
+    <p class="subtitle">Find answers to the most common questions about Mathic.</p>
+
+    <div class="faq-category">Getting started</div>
+
+    <div class="faq-item">
+      <div class="faq-question">Which year groups does Mathic cover? <span class="chevron">▼</span></div>
+      <div class="faq-answer">Mathic covers Year 1 through Year 6 of the UK National Curriculum (ages 5–11). The free plan includes Year 1 and Year 2. A paid subscription unlocks Years 1–6 in full.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Is Mathic aligned to the UK National Curriculum? <span class="chevron">▼</span></div>
+      <div class="faq-answer">Yes. Every topic, island, and question in Mathic is mapped to the UK National Curriculum for primary mathematics (Key Stage 1 and Key Stage 2). We follow the White Rose Maths sequence — the same scheme used by thousands of UK primary schools — so what your child does in Mathic directly supports what they're learning in class.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">How do I change my child's year group? <span class="chevron">▼</span></div>
+      <div class="faq-answer">Open the Mathic app → tap Settings → tap your child's name → tap Year Group → select the correct year. Changes take effect immediately.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Can I add more than one child? <span class="chevron">▼</span></div>
+      <div class="faq-answer">Yes. The free plan supports 1 child profile. A paid subscription supports up to 4 child profiles under one parent account, each with their own progress, year group, and settings.</div>
+    </div>
+
+    <div class="faq-category">Subscriptions & billing</div>
+
+    <div class="faq-item">
+      <div class="faq-question">How do I cancel my subscription? <span class="chevron">▼</span></div>
+      <div class="faq-answer">
+        <strong>If you subscribed through the App Store:</strong> Go to Settings on your iPhone → tap your Apple ID → Subscriptions → Mathic → Cancel Subscription. Your access continues until the end of the current billing period.<br/><br/>
+        <strong>If you subscribed through mathic.app:</strong> Log in at mathic.app/account and cancel from your account page. No phone calls needed.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">I paid but my app still shows the free version. <span class="chevron">▼</span></div>
+      <div class="faq-answer">Open and close the Mathic app once — it checks for subscription updates automatically on launch. If it still shows the free version after 60 seconds, pull down on the main screen to refresh. If the problem persists, email us at hello@mathic.app with your account email and we'll resolve it within a few hours.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">How does the 7-day free trial work? <span class="chevron">▼</span></div>
+      <div class="faq-answer">When you start a subscription, your first 7 days are completely free — no charge is made during this period. If you cancel before the 7 days are up, you will not be charged anything. After 7 days, your chosen plan (monthly or annual) begins automatically.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Can I switch from monthly to annual? <span class="chevron">▼</span></div>
+      <div class="faq-answer">Yes. Cancel your current monthly subscription (your access continues until the billing period ends), then subscribe to the annual plan at mathic.app/subscribe or through the App Store. You won't lose any of your child's progress.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">I was charged but I cancelled during the trial. <span class="chevron">▼</span></div>
+      <div class="faq-answer">If you were charged in error, email hello@mathic.app within 14 days with your account email address and we'll arrange a refund promptly.</div>
+    </div>
+
+    <div class="faq-category">Privacy & safety</div>
+
+    <div class="faq-item">
+      <div class="faq-question">Is Mathic safe for children? <span class="chevron">▼</span></div>
+      <div class="faq-answer">Yes. Mathic contains no advertising, no social features, no in-app purchases visible to children, and no external links. We comply with the ICO's Age-Appropriate Design Code (UK Children's Code) and GDPR-UK. Children do not create accounts — only parents do.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">What data do you collect about my child? <span class="chevron">▼</span></div>
+      <div class="faq-answer">We collect only what is needed to provide the service: your child's nickname, year group, and learning progress (questions answered, scores, islands completed). We do not collect your child's email address, location, or any sensitive personal data. See our full Privacy Policy for details.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">How do I delete my account and all data? <span class="chevron">▼</span></div>
+      <div class="faq-answer">Open the Mathic app → Settings → Account → Delete Account. This permanently deletes your parent account and all child profiles. Alternatively, email privacy@mathic.app and we will delete everything within 30 days.</div>
+    </div>
+
+    <div class="contact-card">
+      <div style="font-size:3rem;margin-bottom:16px;">🦔</div>
+      <h2>Still need help?</h2>
+      <p>We're a small team and we read every email. Expect a reply within one working day.</p>
+      <a href="mailto:hello@mathic.app" class="contact-btn">Email hello@mathic.app</a>
+    </div>
+  </div>
+  <footer>
+    <a href="/">Home</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms</a>
+    <a href="help.html">Help</a>
+    <br/><br/>© 2026 Mathic. All rights reserved.
+  </footer>
+  <script>
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.parentElement;
+        const wasOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!wasOpen) item.classList.add('open');
+      });
+    });
+  </script>
+</body>
+</html>
