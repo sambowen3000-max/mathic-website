@@ -188,16 +188,7 @@
     <a href="help.html">Help</a>
     <br/><br/>© 2026 Mathic. All rights reserved.
   </footer>
-  <script>
-    document.querySelectorAll('.faq-question').forEach(q => {
-      q.addEventListener('click', () => {
-        const item = q.parentElement;
-        const wasOpen = item.classList.contains('open');
-        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-        if (!wasOpen) item.classList.add('open');
-      });
-    });
-  </script>
+  <script defer src="/help.js"></script>
   <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
