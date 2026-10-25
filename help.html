@@ -45,6 +45,16 @@
     .contact-btn:hover { transform: translateY(-2px); }
     footer { background: #1a1523; color: rgba(255,255,255,0.5); padding: 32px 24px; text-align: center; font-size: 0.82rem; }
     footer a { color: rgba(255,255,255,0.6); text-decoration: none; margin: 0 12px; }
+
+    /* WEB-2 responsive pass (25 Oct 2026) */
+    html, body { max-width: 100%; overflow-x: hidden; }
+    .content { overflow-wrap: anywhere; }
+    .content a, nav a, footer a { overflow-wrap: anywhere; }
+    nav a, footer a { display: inline-flex; align-items: center; min-height: 44px; }
+    @media (max-width: 768px) {
+      .content { padding: 40px 20px 64px; }
+      .nav-inner { height: 56px; }
+    }
   </style>
 </head>
 <body>
@@ -108,7 +118,7 @@
 
     <div class="faq-item">
       <div class="faq-question">My trial has ended and some of my children's profiles are locked. <span class="chevron">▼</span></div>
-      <div class="faq-answer">When your trial ends, Mathic switches to the Free plan, which supports one active child profile. Don't worry: your other children's profiles, progress and streaks are safely paused, not deleted. You can upgrade to Premium to unlock all your children straight away, or change which child plays for free in Settings, then My Children (you can change this once every 30 days).</div>
+      <div class="faq-answer">When your trial ends, Mathic switches to the Free plan, which supports one active child profile. Don't worry: your other children's profiles and progress are safely paused, not deleted. You can upgrade to Premium to unlock all your children straight away, or change which child plays for free in Settings, then My Children (you can change this once every 30 days).</div>
     </div>
 
     <div class="faq-item">

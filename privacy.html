@@ -41,6 +41,16 @@
     .highlight-box p { margin: 0; font-weight: 500; }
     footer { background: #1a1523; color: rgba(255,255,255,0.5); padding: 32px 24px; text-align: center; font-size: 0.82rem; }
     footer a { color: rgba(255,255,255,0.6); text-decoration: none; margin: 0 12px; }
+
+    /* WEB-2 responsive pass (25 Oct 2026) */
+    html, body { max-width: 100%; overflow-x: hidden; }
+    .content { overflow-wrap: anywhere; }
+    .content a, nav a, footer a { overflow-wrap: anywhere; }
+    nav a, footer a { display: inline-flex; align-items: center; min-height: 44px; }
+    @media (max-width: 768px) {
+      .content { padding: 40px 20px 64px; }
+      .nav-inner { height: 56px; }
+    }
   </style>
 </head>
 <body>
