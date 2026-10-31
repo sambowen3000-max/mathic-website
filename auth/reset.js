@@ -23,8 +23,20 @@
     containsEmail: "Your password can't include your email address.",
     samePassword: 'Your new password must be different from your old one.',
     weak: "That's one of the most common passwords. Try three random words instead.",
+    pwned: 'That password has appeared in a data breach. Try three random words instead.',
+    characters: "That password doesn't meet the character rules. Try three random words instead.",
     failed: 'Something went wrong. Please request a new reset link.',
   };
+
+  // Supabase explains a weak_password rejection in error.weak_password.reasons:
+  // 'length', 'characters' (the project's character rule) or 'pwned' (seen in a breach).
+  function weakPasswordText(err) {
+    var reasons = (err && err.weak_password && err.weak_password.reasons) || [];
+    if (reasons.indexOf('pwned') !== -1) return TEXT.pwned;
+    if (reasons.indexOf('length') !== -1) return TEXT.tooShort;
+    if (reasons.indexOf('characters') !== -1) return TEXT.characters;
+    return TEXT.weak;
+  }
 
   var states = ['checking', 'form', 'done', 'expired'];
   function show(name) {
@@ -99,7 +111,7 @@
         var code = res.error.code || '';
         errorBox.textContent =
           code === 'same_password' ? TEXT.samePassword :
-          code === 'weak_password' ? TEXT.weak :
+          code === 'weak_password' ? weakPasswordText(res.error) :
           TEXT.failed;
         return;
       }
