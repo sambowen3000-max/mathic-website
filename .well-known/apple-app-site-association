@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": ["39F93B57AF.com.mathicapp.mathic"],
+        "appID": "39F93B57AF.com.mathicapp.mathic",
+        "paths": ["/auth/*"],
+        "components": [{ "/": "/auth/*", "comment": "MA-292 / S14-14: account email links open Mathic" }]
+      }
+    ]
+  }
+}

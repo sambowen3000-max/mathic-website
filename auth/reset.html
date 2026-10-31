@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Reset your password — Mathic</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#4F46E5" />
+  <style>
+    :root { --brand: #534AB7; --brand-light: #ede9ff; --brand-dark: #3d3688; --text: #1a1523; --text-muted: #6b6580; --white: #ffffff; --off-white: #faf9ff; --error: #b3261e; --ok: #1f7a4d; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--off-white); line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; }
+    nav { background: rgba(250,249,255,0.92); border-bottom: 1px solid rgba(83,74,183,0.08); padding: 0 24px; }
+    .nav-inner { max-width: 480px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .nav-logo { font-family: 'Fraunces', serif; font-weight: 900; font-size: 1.5rem; color: var(--brand); text-decoration: none; }
+    main { flex: 1; display: flex; align-items: flex-start; justify-content: center; padding: 48px 24px 80px; }
+    .card { width: 100%; max-width: 480px; background: var(--white); border: 1px solid rgba(83,74,183,0.1); border-radius: 16px; padding: 32px 28px; }
+    .page-label { display: inline-block; background: var(--brand-light); color: var(--brand); font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 6px 14px; border-radius: 100px; margin-bottom: 16px; }
+    h1 { font-family: 'Fraunces', serif; font-size: 1.8rem; font-weight: 900; letter-spacing: -0.5px; margin-bottom: 8px; }
+    p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; }
+    label { display: block; font-weight: 600; font-size: 0.875rem; margin: 16px 0 6px; }
+    input { width: 100%; font: inherit; font-size: 1rem; padding: 12px 14px; border: 1.5px solid rgba(83,74,183,0.25); border-radius: 10px; background: var(--white); color: var(--text); }
+    input:focus { outline: none; border-color: var(--brand); box-shadow: 0 0 0 3px var(--brand-light); }
+    button { width: 100%; margin-top: 24px; font: inherit; font-weight: 600; font-size: 1rem; padding: 14px; min-height: 48px; border: 0; border-radius: 10px; background: var(--brand); color: var(--white); cursor: pointer; }
+    button:hover { background: var(--brand-dark); }
+    button:disabled { opacity: 0.6; cursor: default; }
+    .msg { margin-top: 14px; font-size: 0.9rem; min-height: 1.4em; }
+    .msg.error { color: var(--error); }
+    .ok h1 { color: var(--ok); }
+    .small { font-size: 0.85rem; }
+    .small a { color: var(--brand); font-weight: 600; }
+    [hidden] { display: none !important; }
+    footer { background: #1a1523; color: rgba(255,255,255,0.5); padding: 24px; text-align: center; font-size: 0.82rem; }
+    footer a { color: rgba(255,255,255,0.6); text-decoration: none; margin: 0 12px; display: inline-flex; align-items: center; min-height: 44px; }
+  </style>
+</head>
+<body>
+  <nav><div class="nav-inner"><a class="nav-logo" href="/">Mathic</a></div></nav>
+
+  <main>
+    <!-- Checking the link -->
+    <section class="card" id="state-checking">
+      <span class="page-label">Password reset</span>
+      <h1>Checking your link…</h1>
+      <p>One moment.</p>
+    </section>
+
+    <!-- The form -->
+    <section class="card" id="state-form" hidden>
+      <span class="page-label">Password reset</span>
+      <h1>Choose a new password</h1>
+      <p id="form-subtitle">At least 8 characters. Three random words are easy to remember and hard to guess.</p>
+      <form id="reset-form" novalidate>
+        <label for="password">New password</label>
+        <input id="password" type="password" autocomplete="new-password" minlength="8" maxlength="72" required />
+        <label for="confirm">Type it again</label>
+        <input id="confirm" type="password" autocomplete="new-password" minlength="8" maxlength="72" required />
+        <div class="msg error" id="form-error" role="alert"></div>
+        <button type="submit" id="submit">Save new password</button>
+      </form>
+    </section>
+
+    <!-- Saved -->
+    <section class="card ok" id="state-done" hidden>
+      <span class="page-label">Password reset</span>
+      <h1>Password updated</h1>
+      <p>You can now sign in to Mathic on your iPhone or iPad with your new password.</p>
+    </section>
+
+    <!-- Expired or already used -->
+    <section class="card" id="state-expired" hidden>
+      <span class="page-label">Password reset</span>
+      <h1>That link has expired</h1>
+      <p>Reset links work once and last 1 hour. Open Mathic on your iPhone, tap <strong>Forgot password?</strong> on the sign-in screen, and we’ll send you a new one.</p>
+      <p class="small">Need a hand? Email <a href="mailto:hello@mathic.app">hello@mathic.app</a>.</p>
+    </section>
+  </main>
+
+  <footer><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/help">Help</a></footer>
+
+  <script src="/auth/supabase-2.101.0.min.js"></script>
+  <script src="/auth/reset.js"></script>
+</body>
+</html>

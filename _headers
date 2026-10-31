@@ -6,4 +6,15 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
   Cross-Origin-Opener-Policy: same-origin
-  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://vpycxybvsnrkmqvtlpok.supabase.co; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+
+# MA-292: Apple reads this file to open Mathic from https://mathic.app/auth/* links.
+# No extension on the file, so declare the type; never cached for long.
+/.well-known/apple-app-site-association
+  Content-Type: application/json
+  Cache-Control: max-age=300
+
+# MA-292: the reset page must never be cached or framed; the token hash is in its URL.
+/auth/*
+  Cache-Control: no-store
+  Referrer-Policy: no-referrer
