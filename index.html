@@ -454,6 +454,24 @@
     .nav-links a { display: inline-flex; align-items: center; min-height: 44px; }
     .footer-links a { display: inline-flex; align-items: center; min-height: 44px; }
 
+
+    /* WEB-4: trust sections */
+    .safety-section { background: var(--white); }
+    .about-section { background: var(--white); }
+    .about-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-top: 40px; }
+    .about-card { background: var(--off-white); border-radius: 20px; padding: 26px 28px; min-width: 0; }
+    .about-card h3 { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.15rem; margin-bottom: 12px; letter-spacing: -0.3px; }
+    .about-card p { color: var(--text-muted); line-height: 1.65; font-size: 0.95rem; }
+    .about-card p + p { margin-top: 10px; }
+    .about-card ul { list-style: none; display: grid; gap: 10px; }
+    .about-card li { color: var(--text-muted); font-size: 0.95rem; line-height: 1.55; padding-left: 26px; position: relative; }
+    .about-card li::before { content: '✓'; position: absolute; left: 0; color: var(--brand); font-weight: 700; }
+    .safety-section .mode { background: var(--off-white); box-shadow: none; }
+    .pricing-section { background: var(--off-white); }
+    .pricing { background: var(--white); }
+    .faq-home { background: var(--off-white); }
+    .cta-section { border-top: 1px solid rgba(83,74,183,0.08); }
+    @media (max-width: 768px) { .about-grid { grid-template-columns: minmax(0, 1fr); } }
     /* RESPONSIVE */
     /* WEB-12: Sound familiar? and home Questions */
     .problem-section { background: var(--off-white); }
@@ -531,6 +549,7 @@
         <li><a href="#how-it-works">How it works</a></li>
         <li><a href="#islands">Islands</a></li>
         <li><a href="#modes">Ways to play</a></li>
+        <li><a href="#safety">Safety</a></li>
         <li><a href="#pricing">Pricing</a></li>
         <li><a href="help.html">Help</a></li>
         <li><a href="#download" class="btn-nav js-coming-soon">Free trial</a></li>
@@ -675,6 +694,23 @@
     </div>
   </section>
 
+  <!-- SAFETY & PRIVACY (WEB-4) -->
+  <section class="safety-section modes-section" id="safety">
+    <div class="section-inner">
+      <div class="section-label">Safety &amp; privacy</div>
+      <h2 class="section-title">Made for children. Controlled by parents.</h2>
+      <p class="section-subtitle">Mathic is built to the UK Children's Code. Here is what that means in practice.</p>
+      <div class="modes">
+        <div class="mode"><div class="mode-head"><span class="mode-icon">🚫</span><h3>No ads, ever</h3></div><p>Mathic never shows adverts, on the Free plan or on Premium.</p></div>
+        <div class="mode"><div class="mode-head"><span class="mode-icon">💬</span><h3>No chat, no contact</h3></div><p>Children can't message anyone, and nobody can message them. There are no open text boxes for children.</p></div>
+        <div class="mode"><div class="mode-head"><span class="mode-icon">🔒</span><h3>A grown-up check</h3></div><p>Purchases, settings and links that leave the app sit behind a quick check that only a grown-up can pass.</p></div>
+        <div class="mode"><div class="mode-head"><span class="mode-icon">📊</span><h3>Anonymous analytics</h3></div><p>We count which screens and modes are used, without knowing who used them: no names, no device IDs and no location.</p></div>
+        <div class="mode"><div class="mode-head"><span class="mode-icon">👀</span><h3>You're in control</h3></div><p>Only you can create the account and add children. You can see each child's progress and delete everything from Settings at any time.</p></div>
+        <div class="mode"><div class="mode-head"><span class="mode-icon">🇬🇧</span><h3>UK GDPR and the ICO</h3></div><p>Mathic is registered with the Information Commissioner's Office (ZC285429). Our <a href="privacy.html">Privacy Policy</a> explains exactly what we keep and why.</p></div>
+      </div>
+    </div>
+  </section>
+
   <!-- PRICING (WEB-3) -->
   <section class="pricing-section" id="pricing">
     <div class="section-inner">
@@ -696,6 +732,30 @@
         </table>
       </div>
       <p class="small-print">Premium is an auto-renewing subscription through the App Store, charged to your Apple ID. Cancel any time in your Apple ID settings, at least 24 hours before it renews.</p>
+    </div>
+  </section>
+
+  <!-- ABOUT + DEVICES (WEB-4) -->
+  <section class="about-section" id="about">
+    <div class="section-inner">
+      <div class="section-label">About Mathic</div>
+      <h2 class="section-title">Made in London, by a parent.</h2>
+      <div class="about-grid">
+        <div class="about-card">
+          <h3>Who makes Mathic</h3>
+          <p>Mathic is made by Sam, a London dad. When his son's maths homework moved on to a new topic, the practice at home didn't. So he built an app that follows the school year, topic by topic.</p>
+          <p>Mathic is independent: no investors, no adverts, just a subscription that parents choose. Questions or ideas? Write to <a href="mailto:hello@mathic.app">hello@mathic.app</a>. We read every email.</p>
+        </div>
+        <div class="about-card">
+          <h3>Devices &amp; requirements</h3>
+          <ul>
+            <li>iPhone and iPad, iOS 15.1 or later</li>
+            <li>An internet connection while playing, so progress saves to your account</li>
+            <li>Sign in on another iPhone or iPad with the same account, and your children's progress is there</li>
+            <li>Not on Android yet</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
