@@ -471,6 +471,9 @@
     .pricing { background: var(--white); }
     .faq-home { background: var(--off-white); }
     .cta-section { border-top: 1px solid rgba(83,74,183,0.08); }
+    /* WEB-4b: links inside the trust cards use the brand purple (underline kept so links aren't shown by colour alone) */
+    .safety-section .mode p a, .about-card p a { color: var(--brand); font-weight: 600; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    .safety-section .mode p a:hover, .about-card p a:hover { color: var(--brand-dark); }
     @media (max-width: 768px) { .about-grid { grid-template-columns: minmax(0, 1fr); } }
     /* RESPONSIVE */
     /* WEB-12: Sound familiar? and home Questions */
