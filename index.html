@@ -343,6 +343,21 @@
     }
     .badge-text p { font-size: 0.82rem; color: var(--text-muted); }
 
+    /* WEB-7: topics by year */
+    .year-topics { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); padding: 28px 24px; margin-top: 32px; }
+    .year-topics h3 { font-family: 'Fraunces', serif; font-size: 1.35rem; margin-bottom: 6px; }
+    .year-topics > p { color: var(--text-muted); margin-bottom: 18px; max-width: 640px; }
+    .year-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+    .year-tab { font: inherit; font-weight: 600; font-size: 0.9rem; cursor: pointer; padding: 10px 20px; min-height: 44px; border-radius: 100px; border: 1.5px solid var(--brand); background: var(--white); color: var(--brand); }
+    .year-tab[aria-pressed="true"] { background: var(--brand); color: var(--white); }
+    .year-tab:focus-visible { outline: 3px solid var(--amber); outline-offset: 2px; }
+    .year-panel { margin-top: 16px; }
+    .year-panel h4 { font-size: 1rem; margin-bottom: 8px; }
+    .year-panel ol { margin: 0; padding-left: 1.6em; columns: 2; column-gap: 40px; }
+    .year-panel li { padding: 3px 0; break-inside: avoid; }
+    .year-panel li:nth-child(-n+2)::marker { color: var(--emerald-text); font-weight: 700; }
+    @media (max-width: 640px) { .year-panel ol { columns: 1; } }
+
     /* YEAR GROUPS */
     .years-section { background: var(--brand); padding: 64px 24px; }
     .years-inner { max-width: 1100px; margin: 0 auto; text-align: center; }
@@ -670,6 +685,127 @@
           <div class="card-icon">🏆</div>
           <h3>Finish an island</h3>
           <p>Passing an island's Boss Round marks the topic as finished, so you can see at a glance what they've mastered.</p>
+        </div>
+      </div>
+      <!-- WEB-7: topics by year. Names and order come from the islands table (14 Nov 2026); update here when islands change. -->
+      <div class="year-topics" id="year-topics">
+        <h3>Which topics does my child's year cover?</h3>
+        <p>Choose a year to see its islands, in the order most schools teach them. The first two islands of each year are included in the Free plan.</p>
+        <div class="year-tabs">
+          <button type="button" class="year-tab" data-year="1" aria-controls="year-1">Year 1</button>
+          <button type="button" class="year-tab" data-year="2" aria-controls="year-2">Year 2</button>
+          <button type="button" class="year-tab" data-year="3" aria-controls="year-3">Year 3</button>
+          <button type="button" class="year-tab" data-year="4" aria-controls="year-4">Year 4</button>
+          <button type="button" class="year-tab" data-year="5" aria-controls="year-5">Year 5</button>
+          <button type="button" class="year-tab" data-year="6" aria-controls="year-6">Year 6</button>
+        </div>
+        <div class="year-panel" id="year-1">
+          <h4>Year 1 · 17 islands</h4>
+          <ol>
+            <li>Number: Place Value (within 10)</li>
+            <li>Number: Addition &amp; Subtraction (within 10)</li>
+            <li>Geometry: Shape</li>
+            <li>Number: Place Value (within 20)</li>
+            <li>Consolidation</li>
+            <li>Number: Addition &amp; Subtraction (within 20)</li>
+            <li>Number: Place Value (within 50)</li>
+            <li>Measurement: Length &amp; Height</li>
+            <li>Measurement: Weight &amp; Volume</li>
+            <li>Consolidation</li>
+            <li>Number: Multiplication &amp; Division</li>
+            <li>Number: Fractions</li>
+            <li>Geometry: Position &amp; Direction</li>
+            <li>Measurement: Money</li>
+            <li>Number: Place Value (within 100)</li>
+            <li>Measurement: Time</li>
+            <li>Consolidation (End of Year)</li>
+          </ol>
+        </div>
+        <div class="year-panel" id="year-2">
+          <h4>Year 2 · 12 islands</h4>
+          <ol>
+            <li>Number: Place Value (within 100)</li>
+            <li>Number: Addition &amp; Subtraction (within 100)</li>
+            <li>Geometry: Properties of Shape</li>
+            <li>Measurement: Money</li>
+            <li>Number: Multiplication &amp; Division</li>
+            <li>Measurement: Length &amp; Height</li>
+            <li>Measurement: Mass, Capacity &amp; Temperature</li>
+            <li>Number: Fractions</li>
+            <li>Measurement: Time</li>
+            <li>Statistics: Data</li>
+            <li>Geometry: Position &amp; Direction</li>
+            <li>Consolidation (End of Year)</li>
+          </ol>
+        </div>
+        <div class="year-panel" id="year-3">
+          <h4>Year 3 · 14 islands</h4>
+          <ol>
+            <li>Number: Place Value</li>
+            <li>Number: Addition &amp; Subtraction</li>
+            <li>Number: Multiplication &amp; Division A</li>
+            <li>Number: Multiplication &amp; Division B</li>
+            <li>Measurement: Money</li>
+            <li>Statistics: Data</li>
+            <li>Measurement: Length &amp; Perimeter</li>
+            <li>Number: Fractions A</li>
+            <li>Consolidation (Spring)</li>
+            <li>Number: Fractions B</li>
+            <li>Measurement: Time</li>
+            <li>Geometry: Properties of Shape</li>
+            <li>Measurement: Mass &amp; Capacity</li>
+            <li>Consolidation (End of Year)</li>
+          </ol>
+        </div>
+        <div class="year-panel" id="year-4">
+          <h4>Year 4 · 12 islands</h4>
+          <ol>
+            <li>Number: Place Value (4-digit)</li>
+            <li>Number: Addition &amp; Subtraction (4-digit)</li>
+            <li>Measurement: Length &amp; Perimeter</li>
+            <li>Number: Multiplication &amp; Division A</li>
+            <li>Number: Multiplication &amp; Division B</li>
+            <li>Measurement: Perimeter &amp; Area</li>
+            <li>Number: Fractions</li>
+            <li>Number: Decimals</li>
+            <li>Number: Roman Numerals</li>
+            <li>Measurement: Money &amp; Time</li>
+            <li>Statistics</li>
+            <li>Geometry: Shape &amp; Position</li>
+          </ol>
+        </div>
+        <div class="year-panel" id="year-5">
+          <h4>Year 5 · 12 islands</h4>
+          <ol>
+            <li>Number: Place Value (to 1,000,000)</li>
+            <li>Number: Addition &amp; Subtraction</li>
+            <li>Number: Multiplication &amp; Division</li>
+            <li>Number: Fractions</li>
+            <li>Number: Decimals</li>
+            <li>Number: Percentages</li>
+            <li>Measurement: Perimeter, Area &amp; Volume</li>
+            <li>Statistics</li>
+            <li>Geometry: Properties of Shape</li>
+            <li>Geometry: Position &amp; Direction</li>
+            <li>Number: Negative Numbers</li>
+            <li>Measurement: Converting Units</li>
+          </ol>
+        </div>
+        <div class="year-panel" id="year-6">
+          <h4>Year 6 · 11 islands</h4>
+          <ol>
+            <li>Number: Place Value (to 10,000,000)</li>
+            <li>Number: Four Operations</li>
+            <li>Number: Fractions</li>
+            <li>Number: Decimals &amp; Percentages</li>
+            <li>Algebra</li>
+            <li>Measurement: Perimeter, Area &amp; Volume</li>
+            <li>Ratio &amp; Proportion</li>
+            <li>SATs Preparation</li>
+            <li>Statistics</li>
+            <li>Geometry: Position &amp; Direction</li>
+            <li>Geometry: Properties of Shapes</li>
+          </ol>
         </div>
       </div>
       <p class="modes-note">✏️ From Year 3, some questions use written methods, so keep pen and paper handy. The app says when.</p>

@@ -39,3 +39,16 @@
       .then(function () { btn.disabled = false; });
   });
 })();
+
+// WEB-7: topics by year. Without this script every year's list is shown.
+(function () {
+  var box = document.getElementById('year-topics');
+  if (!box) return;
+  var tabs = box.querySelectorAll('.year-tab'), panels = box.querySelectorAll('.year-panel');
+  function show(year) {
+    tabs.forEach(function (t) { t.setAttribute('aria-pressed', t.getAttribute('data-year') === year ? 'true' : 'false'); });
+    panels.forEach(function (p) { p.hidden = p.id !== 'year-' + year; });
+  }
+  tabs.forEach(function (t) { t.addEventListener('click', function () { show(t.getAttribute('data-year')); }); });
+  show('1');
+})();
