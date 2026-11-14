@@ -8,7 +8,7 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
   Cross-Origin-Opener-Policy: same-origin
-  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://vpycxybvsnrkmqvtlpok.supabase.co https://cloudflareinsights.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://vpycxybvsnrkmqvtlpok.supabase.co https://cloudflareinsights.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
 
 # MA-292: Apple reads this file to open Mathic from https://mathic.app/auth/* links.
 # No extension on the file, so declare the type; never cached for long.
@@ -23,3 +23,7 @@
   Cache-Control: no-store
   Referrer-Policy: no-referrer
   Content-Security-Policy: script-src 'self'; connect-src 'self' https://vpycxybvsnrkmqvtlpok.supabase.co
+
+# PERF-4b: self-hosted fonts never change under the same name.
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
