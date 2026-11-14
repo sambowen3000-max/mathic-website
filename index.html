@@ -85,6 +85,8 @@
       justify-content: space-between;
       height: 64px;
     }
+    /* ART-2: Mathic's own hedgehog (the app icon) in place of the emoji; sized by the font-size around it. */
+    .hedgie { width: 1em; height: 1em; border-radius: 22%; vertical-align: -0.16em; display: inline-block; }
     .nav-logo {
       font-family: 'Fraunces', serif;
       font-weight: 900;
@@ -188,9 +190,9 @@
       align-items: center;
     }
     .hero-mascot {
-      font-size: 10rem;
+      font-size: 11rem;
       line-height: 1;
-      filter: drop-shadow(0 20px 40px rgba(83,74,183,0.2));
+      filter: drop-shadow(0 20px 40px rgba(83,74,183,0.25));
       animation: float 4s ease-in-out infinite;
     }
     .hero-bubble {
@@ -575,7 +577,7 @@
   <!-- NAV -->
   <nav>
     <div class="nav-inner">
-      <a href="/" class="nav-logo">Mathic 🦔</a>
+      <a href="/" class="nav-logo">Mathic <img class="hedgie" src="/hedgie.png" alt="" width="320" height="320" /></a>
       <button type="button" class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
         <span></span><span></span><span></span>
       </button>
@@ -606,7 +608,7 @@
         </div>
       </div>
       <div class="hero-visual">
-        <div class="hero-mascot">🦔</div>
+        <div class="hero-mascot"><img class="hedgie" src="/hedgie.png" alt="" width="320" height="320" /></div>
         <div class="hero-bubble bubble-1"><span class="bubble-dot dot-purple"></span>Y3 Place Value ✓</div>
         <div class="hero-bubble bubble-2"><span class="bubble-dot dot-green"></span>Boss Round passed 🏆</div>
         <div class="hero-bubble bubble-3"><span class="bubble-dot dot-amber"></span>Island completed! 🏝️</div>
@@ -933,7 +935,7 @@
   <!-- CTA -->
   <section class="cta-section" id="download">
     <div class="section-inner">
-      <div class="cta-mascot">🦔</div>
+      <div class="cta-mascot"><img class="hedgie" src="/hedgie.png" alt="" width="320" height="320" /></div>
       <h2 class="section-title">Start your free trial today.</h2>
       <p class="section-subtitle">7 days of every topic in your child's year, free. No payment details needed. Your child will thank you (eventually).</p>
       <button type="button" class="btn-primary js-coming-soon" style="margin: 0 auto; display: inline-flex;">
@@ -947,7 +949,7 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
-      <a href="/" class="footer-logo">Mathic 🦔</a>
+      <a href="/" class="footer-logo">Mathic <img class="hedgie" src="/hedgie.png" alt="" width="320" height="320" /></a>
       <ul class="footer-links">
         <li><a href="privacy.html">Privacy Policy</a></li>
         <li><a href="terms.html">Terms & Conditions</a></li>
@@ -962,7 +964,7 @@
   <div class="modal" id="coming-soon" role="dialog" aria-modal="true" aria-labelledby="coming-soon-title" hidden>
     <div class="modal-backdrop" data-close></div>
     <div class="modal-card">
-      <div class="modal-mascot" aria-hidden="true">🦔</div>
+      <div class="modal-mascot" aria-hidden="true"><img class="hedgie" src="/hedgie.png" alt="" width="320" height="320" /></div>
       <h2 id="coming-soon-title">Coming soon</h2>
       <p>Mathic arrives on the App Store in early 2027, with a free 7-day trial.</p>
       <form id="waitlist-form" class="waitlist" novalidate>

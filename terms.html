@@ -37,6 +37,8 @@
     body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--off-white); line-height: 1.7; }
     nav { position: sticky; top: 0; z-index: 100; background: rgba(250,249,255,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(83,74,183,0.08); padding: 0 24px; }
     .nav-inner { max-width: 800px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    /* ART-2: Mathic's own hedgehog (the app icon) in place of the emoji; sized by the font-size around it. */
+    .hedgie { width: 1em; height: 1em; border-radius: 22%; vertical-align: -0.16em; display: inline-block; }
     .nav-logo { font-family: 'Fraunces', serif; font-weight: 900; font-size: 1.5rem; color: var(--brand); text-decoration: none; }
     .nav-back { font-size: 0.875rem; color: var(--text-muted); text-decoration: none; }
     .nav-back:hover { color: var(--brand); }
@@ -66,7 +68,7 @@
 <body>
   <nav>
     <div class="nav-inner">
-      <a href="/" class="nav-logo">Mathic 🦔</a>
+      <a href="/" class="nav-logo">Mathic <img class="hedgie" src="/hedgie.png" alt="" width="320" height="320" /></a>
       <a href="/" class="nav-back">← Back to home</a>
     </div>
   </nav>
