@@ -18,6 +18,8 @@
   <meta property="og:locale" content="en_GB" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="canonical" href="https://mathic.app/" />
+  <!-- The hero picture is the largest thing above the fold: fetch it early. -->
+  <link rel="preload" href="/hedgie.webp" as="image" type="image/webp" fetchpriority="high" />
   <!-- PERF-4b: fonts served from mathic.app (Fraunces and DM Sans, SIL Open Font Licence), not Google Fonts -->
   <link rel="preload" href="/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
@@ -579,7 +581,7 @@
   <!-- NAV -->
   <nav>
     <div class="nav-inner">
-      <a href="/" class="nav-logo">Mathic <img class="hedgie" src="/hedgie.png" alt="" width="320" height="320" /></a>
+      <a href="/" class="nav-logo">Mathic <img class="hedgie" src="/hedgie.webp" alt="" width="320" height="320" /></a>
       <button type="button" class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
         <span></span><span></span><span></span>
       </button>
@@ -610,7 +612,7 @@
         </div>
       </div>
       <div class="hero-visual">
-        <div class="hero-mascot"><img class="hedgie" src="/hedgie.png" alt="" width="320" height="320" /></div>
+        <div class="hero-mascot"><img class="hedgie" src="/hedgie.webp" alt="" width="320" height="320" fetchpriority="high" /></div>
         <div class="hero-bubble bubble-1"><span class="bubble-dot dot-purple"></span>Y3 Place Value ✓</div>
         <div class="hero-bubble bubble-2"><span class="bubble-dot dot-green"></span>Boss Round passed 🏆</div>
         <div class="hero-bubble bubble-3"><span class="bubble-dot dot-amber"></span>Island completed! 🏝️</div>
@@ -937,7 +939,7 @@
   <!-- CTA -->
   <section class="cta-section" id="download">
     <div class="section-inner">
-      <div class="cta-mascot"><img class="hedgie" src="/hedgie.png" alt="" width="320" height="320" /></div>
+      <div class="cta-mascot"><img class="hedgie" src="/hedgie.webp" alt="" width="320" height="320" /></div>
       <h2 class="section-title">Start your free trial today.</h2>
       <p class="section-subtitle">7 days of every topic in your child's year, free. No payment details needed. Your child will thank you (eventually).</p>
       <button type="button" class="btn-primary js-coming-soon" style="margin: 0 auto; display: inline-flex;">
@@ -951,7 +953,7 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
-      <a href="/" class="footer-logo">Mathic <img class="hedgie" src="/hedgie.png" alt="" width="320" height="320" /></a>
+      <a href="/" class="footer-logo">Mathic <img class="hedgie" src="/hedgie.webp" alt="" width="320" height="320" /></a>
       <ul class="footer-links">
         <li><a href="privacy.html">Privacy Policy</a></li>
         <li><a href="terms.html">Terms & Conditions</a></li>
@@ -966,7 +968,7 @@
   <div class="modal" id="coming-soon" role="dialog" aria-modal="true" aria-labelledby="coming-soon-title" hidden>
     <div class="modal-backdrop" data-close></div>
     <div class="modal-card">
-      <div class="modal-mascot" aria-hidden="true"><img class="hedgie" src="/hedgie.png" alt="" width="320" height="320" /></div>
+      <div class="modal-mascot" aria-hidden="true"><img class="hedgie" src="/hedgie.webp" alt="" width="320" height="320" /></div>
       <h2 id="coming-soon-title">Coming soon</h2>
       <p>Mathic arrives on the App Store in early 2027, with a free 7-day trial.</p>
       <form id="waitlist-form" class="waitlist" novalidate>
