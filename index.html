@@ -16,7 +16,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <!-- Mathic favicon set (generated 26 Apr 2026 via realfavicongenerator) -->
   <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="shortcut icon" href="/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <meta name="apple-mobile-web-app-title" content="Mathic" />
@@ -29,6 +28,10 @@
       --brand-light: #ede9ff;
       --amber: #F5A623;
       --emerald: #22c55e;
+      /* PERF-4: text shades that pass WCAG AA contrast (4.5:1) */
+      --emerald-text: #15803d;
+      --amber-text: #b45309;
+      --amber-on-brand: #FFD27A;
       --text: #1a1523;
       --text-muted: #6b6580;
       --white: #ffffff;
@@ -162,7 +165,7 @@
       font-size: 0.8rem;
       color: var(--text-muted);
     }
-    .trial-note strong { color: var(--emerald); }
+    .trial-note strong { color: var(--emerald-text); }
 
     /* HERO VISUAL */
     .hero-visual {
@@ -188,8 +191,8 @@
       white-space: nowrap;
     }
     .bubble-1 { top: 10%; right: -10px; color: var(--brand); }
-    .bubble-2 { bottom: 20%; left: 0; color: var(--emerald); }
-    .bubble-3 { top: 50%; right: 0; color: var(--amber); }
+    .bubble-2 { bottom: 20%; left: 0; color: var(--emerald-text); }
+    .bubble-3 { top: 50%; right: 0; color: var(--amber-text); }
     .bubble-dot {
       display: inline-block;
       width: 8px; height: 8px;
@@ -227,7 +230,7 @@
       align-items: center;
       gap: 8px;
     }
-    .proof-item span { color: var(--amber); font-weight: 700; }
+    .proof-item span { color: var(--amber-on-brand); font-weight: 700; }
     .proof-sep { color: rgba(255,255,255,0.3); }
 
     /* SECTION SHARED */
@@ -560,6 +563,7 @@
     </div>
   </nav>
 
+  <main>
   <!-- HERO -->
   <section style="padding: 0;">
     <div class="hero">
@@ -788,6 +792,8 @@
           </button>
     </div>
   </section>
+
+  </main>
 
   <!-- FOOTER -->
   <footer>
