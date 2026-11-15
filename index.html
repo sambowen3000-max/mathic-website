@@ -367,6 +367,9 @@
     .year-panel h4 { font-size: 1rem; margin-bottom: 8px; }
     .year-panel ol { margin: 0; padding-left: 1.6em; columns: 2; column-gap: 40px; }
     .year-panel li { padding: 3px 0; break-inside: avoid; }
+    /* ART-1b: the same topic emblems as the app's island cards */
+    .emblem-sprite { position: absolute; }
+    .topic-emblem { width: 1.15em; height: 1.15em; vertical-align: -0.22em; margin-right: 8px; color: var(--brand); }
     .year-panel li:nth-child(-n+2)::marker { color: var(--emerald-text); font-weight: 700; }
     @media (max-width: 640px) { .year-panel ol { columns: 1; } }
 
@@ -708,6 +711,7 @@
         </div>
       </div>
       <!-- WEB-7: topics by year. Names and order come from the islands table (14 Nov 2026); update here when islands change. -->
+      <svg class="emblem-sprite" width="0" height="0" aria-hidden="true" focusable="false"><symbol id="topic-addsub" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 12H10.5M7 8.5V15.5M13.5 12H20.5"/></g></symbol><symbol id="topic-algebra" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 8 L10.5 16 M10.5 8 L4.5 16 M14 10.2 H20 M14 13.8 H20"/></g></symbol><symbol id="topic-area" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5h17V3.5h-17Z"/><path d="M9.2 3.5v17m5.7-17v17m-11.4-6h17m-17.1-5.7h17.1"/></g></symbol><symbol id="topic-chart" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 18V11h3v7m0-7V5h3v13m2 0V8h3v10m2 0v-5h3v5"/></g></symbol><symbol id="topic-compass" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.4 8.6 L13.4 13.4 L8.6 15.4 L10.6 10.6 Z"/></g></symbol><symbol id="topic-consolidate" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3M17.9 2.9V7.2H13.6"/></g></symbol><symbol id="topic-convert" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8.5H19M15.5 5L19 8.5L15.5 12M20 15.5H5M8.5 12L5 15.5L8.5 19"/></g></symbol><symbol id="topic-cube" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3L20 7.5V16.5L12 21L4 16.5V7.5ZM4 7.5L12 12L20 7.5M12 12V21"/></g></symbol><symbol id="topic-decimals" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="6" cy="12" rx="3" ry="5"/><path d="M20 7H15.6L15 11.4C16.6 10.4 20.2 10.8 20.2 14C20.2 17.4 16.4 17.8 14.6 16.2"/><circle cx="11.6" cy="16.4" r="1.3" fill="currentColor" stroke="none"/></g></symbol><symbol id="topic-four-ops" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7H10M7 4V10M14 7H20M4.6 14.6L9.4 19.4M9.4 14.6L4.6 19.4M14 17H20"/><circle cx="17" cy="14.1" r="1" fill="currentColor" stroke="none"/><circle cx="17" cy="19.9" r="1" fill="currentColor" stroke="none"/></g></symbol><symbol id="topic-fractions" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 0 1 9 9h-9Z" fill="currentColor" fill-opacity="0.22" stroke="none"/><circle cx="12" cy="12" r="9"/><path d="M12 3V21M3 12H21"/></g></symbol><symbol id="topic-jug" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 4.5 H16.5 L15.6 20 H7.4 Z M6.9 10.5 H16.1 M16.4 7 H19.5 V12.5 H16.1 M9 14 H11 M9 17 H11"/></g></symbol><symbol id="topic-money" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M14.6 9.2 C14.1 7.6 11 7.4 10.7 9.7 C10.5 11.2 11.3 12.4 10.5 15.6 H15 M9.2 12.4 H13.2"/></g></symbol><symbol id="topic-multiply" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5L10 15.5M10 8.5L3.5 15.5M13.5 12H20.5"/><circle cx="17" cy="8.2" r="1.2" fill="currentColor" stroke="none"/><circle cx="17" cy="15.8" r="1.2" fill="currentColor" stroke="none"/></g></symbol><symbol id="topic-negative" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 14H21.5M12 10V18M17 12.4V15.6M4.5 7H8.5"/><circle cx="6.5" cy="14" r="2.2" fill="currentColor" stroke="none"/></g></symbol><symbol id="topic-percent" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 L18 6"/><circle cx="7.5" cy="8" r="2.3"/><circle cx="16.5" cy="16" r="2.3"/></g></symbol><symbol id="topic-place-value" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3.5" width="4" height="17" rx="1"/><path d="M5 7.75H9M5 12H9M5 16.25H9"/><rect x="13" y="9" width="5.2" height="5.2" rx="1"/><rect x="13" y="15.3" width="5.2" height="5.2" rx="1"/></g></symbol><symbol id="topic-ratio" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.8 9.6L6.4 7V17M14.4 9.4C14.6 6.5 19.6 6.3 19.6 9.6C19.6 12.2 15 13.8 14.3 17H20"/><circle cx="10.6" cy="9.8" r="1.2" fill="currentColor" stroke="none"/><circle cx="10.6" cy="14.6" r="1.2" fill="currentColor" stroke="none"/></g></symbol><symbol id="topic-roman" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5H21M3 19H21M5 5L11 19M11 5L5 19M15 5V19M19 5V19"/></g></symbol><symbol id="topic-ruler" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.1 19.1 18.9 3.3l2.2 2.2L5.3 21.3Z"/><path d="m8 16 2.1 2.1M10.8 13.2l1.5 1.5M13.5 10.5l2.1 2.1M16.3 7.7l1.5 1.5"/></g></symbol><symbol id="topic-sats" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4.5" width="14" height="16.5" rx="2"/><path d="M9 4.5V3H15V4.5M8.5 12.6L11 15.1L15.8 9.9"/></g></symbol><symbol id="topic-scales" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4 V20 M7.5 20 H16.5 M5 7 H19 M5 7 L2.8 13.2 H7.2 Z M19 7 L16.8 13.2 H21.2 Z"/></g></symbol><symbol id="topic-shape" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="11" width="8.5" height="8.5" rx="1"/><path d="M15.5 3.8L21 12.2H10Z"/><circle cx="17.3" cy="17.4" r="3.1"/></g></symbol><symbol id="topic-thermometer" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14.2V5.5a2 2 0 0 1 4 0V14.2a4 4 0 1 1-4 0ZM12 9.5V15.5M16.5 6.5H18.5M16.5 9.5H18.5"/><circle cx="12" cy="17.4" r="1.7" fill="currentColor" stroke="none"/></g></symbol><symbol id="topic-time" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4.2 2.4"/></g></symbol></svg>
       <div class="year-topics" id="year-topics">
         <h3>Which topics does my child's year cover?</h3>
         <p>Choose a year to see its islands, in the order most schools teach them. The first two islands of each year are included in the Free plan.</p>
@@ -722,109 +726,109 @@
         <div class="year-panel" id="year-1">
           <h4>Year 1 · 17 islands</h4>
           <ol>
-            <li>Number: Place Value (within 10)</li>
-            <li>Number: Addition &amp; Subtraction (within 10)</li>
-            <li>Geometry: Shape</li>
-            <li>Number: Place Value (within 20)</li>
-            <li>Consolidation</li>
-            <li>Number: Addition &amp; Subtraction (within 20)</li>
-            <li>Number: Place Value (within 50)</li>
-            <li>Measurement: Length &amp; Height</li>
-            <li>Measurement: Weight &amp; Volume</li>
-            <li>Consolidation</li>
-            <li>Number: Multiplication &amp; Division</li>
-            <li>Number: Fractions</li>
-            <li>Geometry: Position &amp; Direction</li>
-            <li>Measurement: Money</li>
-            <li>Number: Place Value (within 100)</li>
-            <li>Measurement: Time</li>
-            <li>Consolidation (End of Year)</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-place-value"/></svg>Number: Place Value (within 10)</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-addsub"/></svg>Number: Addition &amp; Subtraction (within 10)</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-shape"/></svg>Geometry: Shape</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-place-value"/></svg>Number: Place Value (within 20)</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-consolidate"/></svg>Consolidation</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-addsub"/></svg>Number: Addition &amp; Subtraction (within 20)</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-place-value"/></svg>Number: Place Value (within 50)</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-ruler"/></svg>Measurement: Length &amp; Height</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-scales"/></svg>Measurement: Weight &amp; Volume</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-consolidate"/></svg>Consolidation</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-multiply"/></svg>Number: Multiplication &amp; Division</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-fractions"/></svg>Number: Fractions</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-compass"/></svg>Geometry: Position &amp; Direction</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-money"/></svg>Measurement: Money</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-place-value"/></svg>Number: Place Value (within 100)</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-time"/></svg>Measurement: Time</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-consolidate"/></svg>Consolidation (End of Year)</li>
           </ol>
         </div>
         <div class="year-panel" id="year-2">
           <h4>Year 2 · 12 islands</h4>
           <ol>
-            <li>Number: Place Value (within 100)</li>
-            <li>Number: Addition &amp; Subtraction (within 100)</li>
-            <li>Geometry: Properties of Shape</li>
-            <li>Measurement: Money</li>
-            <li>Number: Multiplication &amp; Division</li>
-            <li>Measurement: Length &amp; Height</li>
-            <li>Measurement: Mass, Capacity &amp; Temperature</li>
-            <li>Number: Fractions</li>
-            <li>Measurement: Time</li>
-            <li>Statistics: Data</li>
-            <li>Geometry: Position &amp; Direction</li>
-            <li>Consolidation (End of Year)</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-place-value"/></svg>Number: Place Value (within 100)</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-addsub"/></svg>Number: Addition &amp; Subtraction (within 100)</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-shape"/></svg>Geometry: Properties of Shape</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-money"/></svg>Measurement: Money</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-multiply"/></svg>Number: Multiplication &amp; Division</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-ruler"/></svg>Measurement: Length &amp; Height</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-thermometer"/></svg>Measurement: Mass, Capacity &amp; Temperature</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-fractions"/></svg>Number: Fractions</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-time"/></svg>Measurement: Time</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-chart"/></svg>Statistics: Data</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-compass"/></svg>Geometry: Position &amp; Direction</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-consolidate"/></svg>Consolidation (End of Year)</li>
           </ol>
         </div>
         <div class="year-panel" id="year-3">
           <h4>Year 3 · 14 islands</h4>
           <ol>
-            <li>Number: Place Value</li>
-            <li>Number: Addition &amp; Subtraction</li>
-            <li>Number: Multiplication &amp; Division A</li>
-            <li>Number: Multiplication &amp; Division B</li>
-            <li>Measurement: Money</li>
-            <li>Statistics: Data</li>
-            <li>Measurement: Length &amp; Perimeter</li>
-            <li>Number: Fractions A</li>
-            <li>Consolidation (Spring)</li>
-            <li>Number: Fractions B</li>
-            <li>Measurement: Time</li>
-            <li>Geometry: Properties of Shape</li>
-            <li>Measurement: Mass &amp; Capacity</li>
-            <li>Consolidation (End of Year)</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-place-value"/></svg>Number: Place Value</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-addsub"/></svg>Number: Addition &amp; Subtraction</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-multiply"/></svg>Number: Multiplication &amp; Division A</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-multiply"/></svg>Number: Multiplication &amp; Division B</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-money"/></svg>Measurement: Money</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-chart"/></svg>Statistics: Data</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-ruler"/></svg>Measurement: Length &amp; Perimeter</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-fractions"/></svg>Number: Fractions A</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-consolidate"/></svg>Consolidation (Spring)</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-fractions"/></svg>Number: Fractions B</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-time"/></svg>Measurement: Time</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-shape"/></svg>Geometry: Properties of Shape</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-jug"/></svg>Measurement: Mass &amp; Capacity</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-consolidate"/></svg>Consolidation (End of Year)</li>
           </ol>
         </div>
         <div class="year-panel" id="year-4">
           <h4>Year 4 · 12 islands</h4>
           <ol>
-            <li>Number: Place Value (4-digit)</li>
-            <li>Number: Addition &amp; Subtraction (4-digit)</li>
-            <li>Measurement: Length &amp; Perimeter</li>
-            <li>Number: Multiplication &amp; Division A</li>
-            <li>Number: Multiplication &amp; Division B</li>
-            <li>Measurement: Perimeter &amp; Area</li>
-            <li>Number: Fractions</li>
-            <li>Number: Decimals</li>
-            <li>Number: Roman Numerals</li>
-            <li>Measurement: Money &amp; Time</li>
-            <li>Statistics</li>
-            <li>Geometry: Shape &amp; Position</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-place-value"/></svg>Number: Place Value (4-digit)</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-addsub"/></svg>Number: Addition &amp; Subtraction (4-digit)</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-ruler"/></svg>Measurement: Length &amp; Perimeter</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-multiply"/></svg>Number: Multiplication &amp; Division A</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-multiply"/></svg>Number: Multiplication &amp; Division B</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-area"/></svg>Measurement: Perimeter &amp; Area</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-fractions"/></svg>Number: Fractions</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-decimals"/></svg>Number: Decimals</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-roman"/></svg>Number: Roman Numerals</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-money"/></svg>Measurement: Money &amp; Time</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-chart"/></svg>Statistics</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-shape"/></svg>Geometry: Shape &amp; Position</li>
           </ol>
         </div>
         <div class="year-panel" id="year-5">
           <h4>Year 5 · 12 islands</h4>
           <ol>
-            <li>Number: Place Value (to 1,000,000)</li>
-            <li>Number: Addition &amp; Subtraction</li>
-            <li>Number: Multiplication &amp; Division</li>
-            <li>Number: Fractions</li>
-            <li>Number: Decimals</li>
-            <li>Number: Percentages</li>
-            <li>Measurement: Perimeter, Area &amp; Volume</li>
-            <li>Statistics</li>
-            <li>Geometry: Properties of Shape</li>
-            <li>Geometry: Position &amp; Direction</li>
-            <li>Number: Negative Numbers</li>
-            <li>Measurement: Converting Units</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-place-value"/></svg>Number: Place Value (to 1,000,000)</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-addsub"/></svg>Number: Addition &amp; Subtraction</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-multiply"/></svg>Number: Multiplication &amp; Division</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-fractions"/></svg>Number: Fractions</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-decimals"/></svg>Number: Decimals</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-percent"/></svg>Number: Percentages</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-cube"/></svg>Measurement: Perimeter, Area &amp; Volume</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-chart"/></svg>Statistics</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-shape"/></svg>Geometry: Properties of Shape</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-compass"/></svg>Geometry: Position &amp; Direction</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-negative"/></svg>Number: Negative Numbers</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-convert"/></svg>Measurement: Converting Units</li>
           </ol>
         </div>
         <div class="year-panel" id="year-6">
           <h4>Year 6 · 11 islands</h4>
           <ol>
-            <li>Number: Place Value (to 10,000,000)</li>
-            <li>Number: Four Operations</li>
-            <li>Number: Fractions</li>
-            <li>Number: Decimals &amp; Percentages</li>
-            <li>Algebra</li>
-            <li>Measurement: Perimeter, Area &amp; Volume</li>
-            <li>Ratio &amp; Proportion</li>
-            <li>SATs Preparation</li>
-            <li>Statistics</li>
-            <li>Geometry: Position &amp; Direction</li>
-            <li>Geometry: Properties of Shapes</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-place-value"/></svg>Number: Place Value (to 10,000,000)</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-four-ops"/></svg>Number: Four Operations</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-fractions"/></svg>Number: Fractions</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-decimals"/></svg>Number: Decimals &amp; Percentages</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-algebra"/></svg>Algebra</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-cube"/></svg>Measurement: Perimeter, Area &amp; Volume</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-ratio"/></svg>Ratio &amp; Proportion</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-sats"/></svg>SATs Preparation</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-chart"/></svg>Statistics</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-compass"/></svg>Geometry: Position &amp; Direction</li>
+            <li><svg class="topic-emblem" aria-hidden="true" focusable="false"><use href="#topic-shape"/></svg>Geometry: Properties of Shapes</li>
           </ol>
         </div>
       </div>
