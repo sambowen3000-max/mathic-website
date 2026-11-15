@@ -366,10 +366,11 @@
     .year-panel { margin-top: 16px; }
     .year-panel h4 { font-size: 1rem; margin-bottom: 8px; }
     .year-panel ol { margin: 0; padding-left: 1.6em; columns: 2; column-gap: 40px; }
-    .year-panel li { padding: 3px 0; break-inside: avoid; }
+    .year-panel li { padding: 3px 0 3px calc(1.15em + 8px); break-inside: avoid; }
     /* ART-1b: the same topic emblems as the app's island cards */
     .emblem-sprite { position: absolute; }
-    .topic-emblem { width: 1.15em; height: 1.15em; vertical-align: -0.22em; margin-right: 8px; color: var(--brand); }
+    /* the emblem hangs in the item's left padding, so a wrapped line starts under the first word */
+    .topic-emblem { width: 1.15em; height: 1.15em; vertical-align: -0.22em; margin-left: calc(-1.15em - 8px); margin-right: 8px; color: var(--brand); }
     .year-panel li:nth-child(-n+2)::marker { color: var(--emerald-text); font-weight: 700; }
     @media (max-width: 640px) { .year-panel ol { columns: 1; } }
 
