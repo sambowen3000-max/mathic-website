@@ -18,8 +18,8 @@
   <meta property="og:locale" content="en_GB" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="canonical" href="https://mathic.app/" />
-  <!-- The hero picture is the largest thing above the fold: fetch it early. -->
-  <link rel="preload" href="/hedgie.webp" as="image" type="image/webp" fetchpriority="high" />
+  <!-- WEB-5: the hero picture is the Year 3 map screenshot, the largest thing above the fold: fetch it early. -->
+  <link rel="preload" as="image" type="image/avif" imagesrcset="/screens/01-y3-map-400.avif 400w, /screens/01-y3-map-800.avif 800w" imagesizes="(max-width: 768px) 240px, 270px" fetchpriority="high" />
   <!-- PERF-4b: fonts served from mathic.app (Fraunces and DM Sans, SIL Open Font Licence), not Google Fonts -->
   <link rel="preload" href="/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
@@ -191,39 +191,18 @@
       justify-content: center;
       align-items: center;
     }
-    .hero-mascot {
-      font-size: 11rem;
-      line-height: 1;
-      filter: drop-shadow(0 20px 40px rgba(83,74,183,0.25));
-      animation: float 4s ease-in-out infinite;
-    }
-    .hero-bubble {
-      position: absolute;
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 12px 16px;
-      box-shadow: var(--shadow);
-      font-size: 0.85rem;
-      font-weight: 600;
-      white-space: nowrap;
-    }
-    .bubble-1 { top: 10%; right: -10px; color: var(--brand); }
-    .bubble-2 { bottom: 20%; left: 0; color: var(--emerald-text); }
-    .bubble-3 { top: 50%; right: 0; color: var(--amber-text); }
-    .bubble-dot {
-      display: inline-block;
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      margin-right: 6px;
-    }
-    .dot-purple { background: var(--brand); }
-    .dot-green { background: var(--emerald); }
-    .dot-amber { background: var(--amber); }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-16px); }
-    }
+    /* WEB-5: real screenshots (test accounts), frameless, captions in HTML */
+    .hero-sub { font-family: 'Fraunces', serif; font-size: 1.25rem !important; line-height: 1.4 !important; font-weight: 600; color: var(--text) !important; margin-bottom: 14px !important; }
+    .hero-shots { display: flex; align-items: flex-end; justify-content: center; gap: 20px; }
+    .shot { margin: 0; min-width: 0; }
+    .shot img { display: block; width: 100%; height: auto; border-radius: 18px; border: 1px solid rgba(83,74,183,0.16); box-shadow: var(--shadow); background: var(--white); }
+    .shot figcaption { margin-top: 12px; font-size: 0.92rem; font-weight: 600; color: var(--text); line-height: 1.45; text-align: center; }
+    .shot .shot-note { display: block; margin-top: 4px; font-size: 0.8rem; font-weight: 400; color: var(--text-muted); }
+    .shot-hero { width: 270px; }
+    .shot-hero-side { width: 190px; margin-bottom: 52px; }
+    .inside-section { background: var(--off-white); }
+    .shots-phone { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 32px; max-width: 900px; margin: 0 auto; }
+    .shots-ipad { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 32px; align-items: start; max-width: 900px; margin: 48px auto 0; }
 
     /* SOCIAL PROOF BAR */
     .proof-bar {
@@ -562,12 +541,10 @@
       .hero { grid-template-columns: 1fr; gap: 40px; text-align: center; padding: 48px 20px 40px; }
       .hero-text p { margin: 0 auto 28px; }
       .hero-ctas { align-items: center; }
-      .hero-visual { order: -1; min-height: 200px; }
-      .hero-mascot { font-size: 7rem; }
-      .hero-bubble { font-size: 0.78rem; padding: 10px 12px; }
-      .bubble-1 { right: 8px; top: 0; }
-      .bubble-2 { left: 8px; bottom: 8px; }
-      .bubble-3 { right: 8px; top: auto; bottom: 36px; }
+      .shot-hero { width: 240px; }
+      .shots-phone { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 16px; }
+      .shots-ipad { grid-template-columns: 1fr; max-width: 480px; }
+      .shot figcaption { font-size: 0.86rem; }
       .steps, .cards-3, .modes { grid-template-columns: 1fr; }
       .curriculum-grid { grid-template-columns: 1fr; }
       .proof-bar-inner { gap: 16px; }
@@ -582,6 +559,9 @@
       .pricing th, .pricing td { padding: 12px 12px; font-size: 0.88rem; }
       .footer-inner { flex-direction: column; align-items: flex-start; }
       section { padding: 56px 20px; }
+    }
+    @media (max-width: 900px) {
+      .shot-hero-side { display: none; }
     }
     @media (min-width: 1600px) {
       .hero, .section-inner, .nav-inner, .proof-bar-inner, .years-inner, .footer-inner { max-width: 1200px; }
@@ -615,6 +595,7 @@
     <div class="hero">
       <div class="hero-text">
         <h1>Maths practice that keeps pace with <em>school</em>.</h1>
+        <p class="hero-sub">A woodland adventure through the maths curriculum for England, Years 1–6.</p>
         <p>The UK National Curriculum turned into island adventures, in the order most schools teach it. Short daily sessions for Years 1 to 6.</p>
         <div class="hero-ctas">
           <button type="button" class="btn-primary js-coming-soon">
@@ -623,11 +604,23 @@
           <p class="trial-note"><strong>✓ Free 7-day trial</strong> &nbsp;·&nbsp; No payment details needed</p>
         </div>
       </div>
-      <div class="hero-visual">
-        <div class="hero-mascot"><img class="hedgie" src="/hedgie.webp" alt="" width="320" height="320" fetchpriority="high" /></div>
-        <div class="hero-bubble bubble-1"><span class="bubble-dot dot-purple"></span>Y3 Place Value ✓</div>
-        <div class="hero-bubble bubble-2"><span class="bubble-dot dot-green"></span>Boss Round passed <svg class="line-icon bubble-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 4 H16.5 V9 C16.5 11.8 14.5 13.8 12 13.8 C9.5 13.8 7.5 11.8 7.5 9 Z M7.5 5.5 H4.5 C4.5 8.2 5.6 9.6 7.7 10 M16.5 5.5 H19.5 C19.5 8.2 18.4 9.6 16.3 10 M12 13.8 V17 M8.5 20 H15.5 M9.5 17 H14.5 V20 H9.5 Z"/></g></svg></div>
-        <div class="hero-bubble bubble-3"><span class="bubble-dot dot-amber"></span>Island completed! <svg class="line-icon bubble-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 6.5 L9 4.5 L15 6.5 L20.5 4.5 V17.5 L15 19.5 L9 17.5 L3.5 19.5 Z M9 4.5 V17.5 M15 6.5 V19.5"/></g></svg></div>
+      <div class="hero-visual hero-shots">
+        <figure class="shot shot-hero">
+          <picture>
+            <source type="image/avif" srcset="/screens/01-y3-map-400.avif 400w, /screens/01-y3-map-800.avif 800w" sizes="(max-width: 768px) 240px, 270px" />
+            <source type="image/webp" srcset="/screens/01-y3-map-400.webp 400w, /screens/01-y3-map-800.webp 800w" sizes="(max-width: 768px) 240px, 270px" />
+            <img src="/screens/01-y3-map-400.png" srcset="/screens/01-y3-map-400.png 400w, /screens/01-y3-map-800.png 800w" sizes="(max-width: 768px) 240px, 270px" width="800" height="1700" decoding="async" fetchpriority="high" alt="The Year 3 home screen in Mathic: the Puzzleford map, with Autumn term islands for place value, addition and subtraction, and multiplication and division." />
+          </picture>
+          <figcaption>A maths adventure that follows the school year.</figcaption>
+        </figure>
+        <figure class="shot shot-hero-side" aria-hidden="true">
+          <picture>
+            <source media="(max-width: 900px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+            <source type="image/avif" srcset="/screens/02-y1-coins-400.avif 400w, /screens/02-y1-coins-800.avif 800w" sizes="190px" />
+            <source type="image/webp" srcset="/screens/02-y1-coins-400.webp 400w, /screens/02-y1-coins-800.webp 800w" sizes="190px" />
+            <img src="/screens/02-y1-coins-400.png" srcset="/screens/02-y1-coins-400.png 400w, /screens/02-y1-coins-800.png 800w" sizes="190px" width="800" height="1700" decoding="async" alt="" />
+          </picture>
+        </figure>
       </div>
     </div>
   </section>
@@ -684,6 +677,82 @@
           <h3>Watch confidence grow</h3>
           <p>Little and often adds up. Boss Rounds test whether your child has cracked each topic before it counts as finished.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- INSIDE THE APP (WEB-5): real screenshots from test accounts; files and sources in /screens/screenshots.json -->
+  <section class="inside-section" id="inside" aria-labelledby="inside-title">
+    <div class="section-inner">
+      <h2 class="visually-hidden" id="inside-title">Inside the Mathic app</h2>
+      <div class="shots-phone">
+        <figure class="shot">
+          <picture>
+            <source type="image/avif" srcset="/screens/02-y1-coins-400.avif 400w, /screens/02-y1-coins-800.avif 800w" sizes="(max-width: 768px) calc(50vw - 28px), 280px" />
+            <source type="image/webp" srcset="/screens/02-y1-coins-400.webp 400w, /screens/02-y1-coins-800.webp 800w" sizes="(max-width: 768px) calc(50vw - 28px), 280px" />
+            <img src="/screens/02-y1-coins-400.png" srcset="/screens/02-y1-coins-400.png 400w, /screens/02-y1-coins-800.png 800w" sizes="(max-width: 768px) calc(50vw - 28px), 280px" width="800" height="1700" loading="lazy" decoding="async" alt="A Year 1 question in Mathic: which coin is worth 2p, with a 2p, a 10p and a 20p coin to choose from." />
+          </picture>
+          <figcaption>Friendly maths practice for younger learners.</figcaption>
+        </figure>
+        <figure class="shot">
+          <picture>
+            <source type="image/avif" srcset="/screens/03-y2-discover-400.avif 400w, /screens/03-y2-discover-800.avif 800w" sizes="(max-width: 768px) calc(50vw - 28px), 280px" />
+            <source type="image/webp" srcset="/screens/03-y2-discover-400.webp 400w, /screens/03-y2-discover-800.webp 800w" sizes="(max-width: 768px) calc(50vw - 28px), 280px" />
+            <img src="/screens/03-y2-discover-400.png" srcset="/screens/03-y2-discover-400.png 400w, /screens/03-y2-discover-800.png 800w" sizes="(max-width: 768px) calc(50vw - 28px), 280px" width="800" height="1700" loading="lazy" decoding="async" alt="A Year 2 Discover lesson slide in Mathic explaining that 47 is made of 4 tens and 7 ones, with Hedgie the hedgehog." />
+          </picture>
+          <figcaption>Learn the idea before practising it.</figcaption>
+        </figure>
+        <figure class="shot">
+          <picture>
+            <source type="image/avif" srcset="/screens/05-feedback-hint-400.avif 400w, /screens/05-feedback-hint-800.avif 800w" sizes="(max-width: 768px) calc(50vw - 28px), 280px" />
+            <source type="image/webp" srcset="/screens/05-feedback-hint-400.webp 400w, /screens/05-feedback-hint-800.webp 800w" sizes="(max-width: 768px) calc(50vw - 28px), 280px" />
+            <img src="/screens/05-feedback-hint-400.png" srcset="/screens/05-feedback-hint-400.png 400w, /screens/05-feedback-hint-800.png 800w" sizes="(max-width: 768px) calc(50vw - 28px), 280px" width="800" height="1700" loading="lazy" decoding="async" alt="Feedback after a wrong answer in Mathic: Not quite, the correct answer, and a hint about comparing fractions." />
+          </picture>
+          <figcaption>Helpful hints when children make mistakes.</figcaption>
+        </figure>
+        <figure class="shot">
+          <picture>
+            <source type="image/avif" srcset="/screens/06-session-results-400.avif 400w, /screens/06-session-results-800.avif 800w" sizes="(max-width: 768px) calc(50vw - 28px), 280px" />
+            <source type="image/webp" srcset="/screens/06-session-results-400.webp 400w, /screens/06-session-results-800.webp 800w" sizes="(max-width: 768px) calc(50vw - 28px), 280px" />
+            <img src="/screens/06-session-results-400.png" srcset="/screens/06-session-results-400.png 400w, /screens/06-session-results-800.png 800w" sizes="(max-width: 768px) calc(50vw - 28px), 280px" width="800" height="1700" loading="lazy" decoding="async" alt="A session results screen in Mathic: two stars, 11 of 15 correct and a breakdown by question type." />
+          </picture>
+          <figcaption>See what they’ve achieved, one session at a time.</figcaption>
+        </figure>
+        <figure class="shot">
+          <picture>
+            <source type="image/avif" srcset="/screens/07-daily-quest-400.avif 400w, /screens/07-daily-quest-800.avif 800w" sizes="(max-width: 768px) calc(50vw - 28px), 280px" />
+            <source type="image/webp" srcset="/screens/07-daily-quest-400.webp 400w, /screens/07-daily-quest-800.webp 800w" sizes="(max-width: 768px) calc(50vw - 28px), 280px" />
+            <img src="/screens/07-daily-quest-400.png" srcset="/screens/07-daily-quest-400.png 400w, /screens/07-daily-quest-800.png 800w" sizes="(max-width: 768px) calc(50vw - 28px), 280px" width="800" height="1700" loading="lazy" decoding="async" alt="The Daily Quest screen in Mathic: 10 personalised questions across topics to practise, with acorns to earn." />
+          </picture>
+          <figcaption>A little maths practice every day.</figcaption>
+        </figure>
+        <figure class="shot">
+          <picture>
+            <source type="image/avif" srcset="/screens/08-y6-missing-digits-400.avif 400w, /screens/08-y6-missing-digits-800.avif 800w" sizes="(max-width: 768px) calc(50vw - 28px), 280px" />
+            <source type="image/webp" srcset="/screens/08-y6-missing-digits-400.webp 400w, /screens/08-y6-missing-digits-800.webp 800w" sizes="(max-width: 768px) calc(50vw - 28px), 280px" />
+            <img src="/screens/08-y6-missing-digits-400.png" srcset="/screens/08-y6-missing-digits-400.png 400w, /screens/08-y6-missing-digits-800.png 800w" sizes="(max-width: 768px) calc(50vw - 28px), 280px" width="800" height="1700" loading="lazy" decoding="async" alt="A Year 6 question in Mathic: find the missing digits in a four-digit column addition." />
+          </picture>
+          <figcaption>Develop reasoning with more challenging maths.</figcaption>
+        </figure>
+      </div>
+      <div class="shots-ipad">
+        <figure class="shot">
+          <picture>
+            <source type="image/avif" srcset="/screens/04-y5-fraction-600.avif 600w, /screens/04-y5-fraction-1200.avif 1200w" sizes="(max-width: 768px) calc(100vw - 40px), 434px" />
+            <source type="image/webp" srcset="/screens/04-y5-fraction-600.webp 600w, /screens/04-y5-fraction-1200.webp 1200w" sizes="(max-width: 768px) calc(100vw - 40px), 434px" />
+            <img src="/screens/04-y5-fraction-600.png" srcset="/screens/04-y5-fraction-600.png 600w, /screens/04-y5-fraction-1200.png 1200w" sizes="(max-width: 768px) calc(100vw - 40px), 434px" width="1200" height="1563" loading="lazy" decoding="async" alt="A Year 5 question on iPad in Mathic: add three sixths and six twelfths, with two number lines and a number pad." />
+          </picture>
+          <figcaption>Build understanding as the maths gets harder.</figcaption>
+        </figure>
+        <figure class="shot">
+          <picture>
+            <source type="image/avif" srcset="/screens/09-parent-progress-630.avif 630w, /screens/09-parent-progress-1260.avif 1260w" sizes="(max-width: 768px) calc(100vw - 40px), 434px" />
+            <source type="image/webp" srcset="/screens/09-parent-progress-630.webp 630w, /screens/09-parent-progress-1260.webp 1260w" sizes="(max-width: 768px) calc(100vw - 40px), 434px" />
+            <img src="/screens/09-parent-progress-630.png" srcset="/screens/09-parent-progress-630.png 630w, /screens/09-parent-progress-1260.png 1260w" sizes="(max-width: 768px) calc(100vw - 40px), 434px" width="1260" height="2000" loading="lazy" decoding="async" alt="The parent progress screen on iPad in Mathic: questions answered in the last 7 days, islands played, types of questions and Boss Rounds passed." />
+          </picture>
+          <figcaption>See your child’s progress across the curriculum.<span class="shot-note">Illustrative account with example progress.</span></figcaption>
+        </figure>
       </div>
     </div>
   </section>

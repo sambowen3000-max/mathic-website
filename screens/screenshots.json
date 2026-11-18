@@ -1,0 +1,203 @@
+{
+ "note": "Test accounts only. Replace a screenshot by re-capturing it and regenerating its files; ids and captions live in index.html.",
+ "screens": [
+  {
+   "id": "01-y3-map",
+   "source": "web5_map.png",
+   "device": "iPhone 17",
+   "child": "Year 3 Tester",
+   "captured": "2026-11-18",
+   "app_build": "main@4ab13e2",
+   "width": 800,
+   "height": 1700,
+   "widths": [
+    400,
+    800
+   ],
+   "files": {
+    "01-y3-map-400.avif": 19216,
+    "01-y3-map-400.webp": 28902,
+    "01-y3-map-400.png": 31551,
+    "01-y3-map-800.avif": 39678,
+    "01-y3-map-800.webp": 66564,
+    "01-y3-map-800.png": 72945
+   }
+  },
+  {
+   "id": "02-y1-coins",
+   "source": "web5_coins.png",
+   "device": "iPhone 17",
+   "child": "Tester (Year 1)",
+   "captured": "2026-11-18",
+   "app_build": "main@4ab13e2",
+   "width": 800,
+   "height": 1700,
+   "widths": [
+    400,
+    800
+   ],
+   "files": {
+    "02-y1-coins-400.avif": 4498,
+    "02-y1-coins-400.webp": 5394,
+    "02-y1-coins-400.png": 8727,
+    "02-y1-coins-800.avif": 8421,
+    "02-y1-coins-800.webp": 13048,
+    "02-y1-coins-800.png": 21867
+   }
+  },
+  {
+   "id": "03-y2-discover",
+   "source": "web5_discover_1.png",
+   "device": "iPhone 17",
+   "child": "Maya (Year 2)",
+   "captured": "2026-11-18",
+   "app_build": "main@4ab13e2",
+   "width": 800,
+   "height": 1700,
+   "widths": [
+    400,
+    800
+   ],
+   "files": {
+    "03-y2-discover-400.avif": 14714,
+    "03-y2-discover-400.webp": 21458,
+    "03-y2-discover-400.png": 22538,
+    "03-y2-discover-800.avif": 31464,
+    "03-y2-discover-800.webp": 47838,
+    "03-y2-discover-800.png": 52028
+   }
+  },
+  {
+   "id": "04-y5-fraction",
+   "source": "web5_y5.png",
+   "device": "iPad Pro 13-inch",
+   "child": "Leo (Year 5)",
+   "captured": "2026-11-18",
+   "app_build": "main@4ab13e2",
+   "width": 1200,
+   "height": 1563,
+   "widths": [
+    600,
+    1200
+   ],
+   "files": {
+    "04-y5-fraction-600.avif": 5579,
+    "04-y5-fraction-600.webp": 7432,
+    "04-y5-fraction-600.png": 9149,
+    "04-y5-fraction-1200.avif": 12195,
+    "04-y5-fraction-1200.webp": 17768,
+    "04-y5-fraction-1200.png": 21855
+   }
+  },
+  {
+   "id": "05-feedback-hint",
+   "source": "web5_feedback.png",
+   "device": "iPhone 17",
+   "child": "Year 3 Tester",
+   "captured": "2026-11-18",
+   "app_build": "main@4ab13e2",
+   "width": 800,
+   "height": 1700,
+   "widths": [
+    400,
+    800
+   ],
+   "files": {
+    "05-feedback-hint-400.avif": 6775,
+    "05-feedback-hint-400.webp": 8450,
+    "05-feedback-hint-400.png": 10504,
+    "05-feedback-hint-800.avif": 12969,
+    "05-feedback-hint-800.webp": 18224,
+    "05-feedback-hint-800.png": 23648
+   }
+  },
+  {
+   "id": "06-session-results",
+   "source": "web5_results.png",
+   "device": "iPhone 17",
+   "child": "Year 3 Tester",
+   "captured": "2026-11-18",
+   "app_build": "main@4ab13e2",
+   "width": 800,
+   "height": 1700,
+   "widths": [
+    400,
+    800
+   ],
+   "files": {
+    "06-session-results-400.avif": 6455,
+    "06-session-results-400.webp": 8468,
+    "06-session-results-400.png": 9434,
+    "06-session-results-800.avif": 13611,
+    "06-session-results-800.webp": 19262,
+    "06-session-results-800.png": 21450
+   }
+  },
+  {
+   "id": "07-daily-quest",
+   "source": "web5_daily.png",
+   "device": "iPhone 17",
+   "child": "Year 3 Tester",
+   "captured": "2026-11-18",
+   "app_build": "main@4ab13e2",
+   "width": 800,
+   "height": 1700,
+   "widths": [
+    400,
+    800
+   ],
+   "files": {
+    "07-daily-quest-400.avif": 11539,
+    "07-daily-quest-400.webp": 15088,
+    "07-daily-quest-400.png": 18348,
+    "07-daily-quest-800.avif": 25231,
+    "07-daily-quest-800.webp": 34052,
+    "07-daily-quest-800.png": 43055
+   }
+  },
+  {
+   "id": "08-y6-missing-digits",
+   "source": "web5_md.png",
+   "device": "iPhone 17",
+   "child": "Year 6 Tester",
+   "captured": "2026-11-18",
+   "app_build": "main@4ab13e2",
+   "width": 800,
+   "height": 1700,
+   "widths": [
+    400,
+    800
+   ],
+   "files": {
+    "08-y6-missing-digits-400.avif": 6901,
+    "08-y6-missing-digits-400.webp": 8570,
+    "08-y6-missing-digits-400.png": 10939,
+    "08-y6-missing-digits-800.avif": 13924,
+    "08-y6-missing-digits-800.webp": 19080,
+    "08-y6-missing-digits-800.png": 26270
+   }
+  },
+  {
+   "id": "09-parent-progress",
+   "source": "web5_progress_top.png",
+   "device": "iPad Pro 13-inch",
+   "child": "Year 3 Tester",
+   "captured": "2026-11-18",
+   "app_build": "main@4ab13e2",
+   "width": 1260,
+   "height": 2000,
+   "widths": [
+    630,
+    1260
+   ],
+   "files": {
+    "09-parent-progress-630.avif": 26971,
+    "09-parent-progress-630.webp": 37208,
+    "09-parent-progress-630.png": 34305,
+    "09-parent-progress-1260.avif": 44525,
+    "09-parent-progress-1260.webp": 86956,
+    "09-parent-progress-1260.png": 58637
+   }
+  }
+ ]
+}
